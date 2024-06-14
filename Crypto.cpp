@@ -255,7 +255,7 @@ string oaepEncode(const string&data,size_t securityParam){
     size_t PSLen = DBLen - 1-data.length()-hLen;
 
 
-    cout<<"generate hash\n";
+    // cout<<"generate hash\n";
     mpz_class seed = genRandom(512);
     string seedEx = generateMGF1(mpzToString(seed),DBLen);
 

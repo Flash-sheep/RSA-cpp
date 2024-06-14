@@ -378,7 +378,7 @@ void CCA2_OAEP(){ //an implementation of cca2
 
 }
 
-pair<bool,bool> RSA(){
+void RSA(){
     bool write = false;
     clearFile("Encrypted_Message.txt");
 
@@ -403,21 +403,11 @@ pair<bool,bool> RSA(){
     writeFile("Encrypted_Message.txt",ciphertext1);
     string ciphertext2 = readFile("Encrypted_Message.txt");
 
-    cout<<(ciphertext1==ciphertext2)<<endl;
+    // cout<<(ciphertext1==ciphertext2)<<endl;
 
     string plaintext = rsa.decrypt(ciphertext2);
     cout<<plaintext<<endl<<(plaintext == m)<<endl;
 
-
-    mpz_class a = 123;
-
-
-    a = power(a,rsa.publicKey.publicExponent,rsa.publicKey.modulus);
-    a = power(a,rsa.privateKey.privateExponent,rsa.privateKey.modulus);
-
-    cout<<(a==123)<<endl;
-    // rsa.privateKey.verify();
-    return pair<bool,bool>((plaintext == m),(a==123));
     
 }
 
@@ -464,8 +454,9 @@ void RSA_OAEP(){
 }
 int main(){
     // CCA2();
-    // RSA_OAEP();
-    CCA2_OAEP();
+    RSA_OAEP();
+    // CCA2_OAEP();
+    // RSA();
 
     // RSA();
     // int count1 = 0;
