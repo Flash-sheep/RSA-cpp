@@ -45,7 +45,7 @@ mpz_class RSAcipher::decrypt(const mpz_class& data){
 
 mpz_class RSAcipher::encrypt(const mpz_class& data,int padding){
     if(padding == 0){
-        cout<<"Use another padding scheme"<<endl;
+        return power(data,publicKey.publicExponent,publicKey.modulus);
     }
     string msg = mpzToString(data);
     string oaepM = oaepEncode(msg,securityParam);
@@ -54,6 +54,9 @@ mpz_class RSAcipher::encrypt(const mpz_class& data,int padding){
 }
 
 mpz_class RSAcipher::decrypt(const mpz_class& data,int padding){
+    if(padding == 0){
+        return power(data,privateKey.privateExponent,privateKey.modulus);
+    }
     mpz_class oaepM = power(data,privateKey.privateExponent,privateKey.modulus);
     string outputPaddedhex = zeroPadding(oaepM,2*securityParam);
     string outputPad = hex_to_bytes(outputPaddedhex);
