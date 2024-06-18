@@ -19,12 +19,13 @@ Simply using apt command
 ### Run the program
 
 `make` then `./target`
+Follow the guide to run the whole program
 
 ### Task1 
 
 In task1, I implemented the simple textbook version of RSA.
 
-The procedure of testing textbook RSA is encapsulated into a function 'RSA()' in main.cpp. Add RSA() into main() run the program.
+The procedure of testing textbook RSA is encapsulated into a function 'RSA()' in main.cpp. ~~~Add RSA() into main() run the program~~~.
 
 Change "Raw_Message.txt" to change the plaintext and encrypted message will be  output into "Encrypted_Message.txt"
 
